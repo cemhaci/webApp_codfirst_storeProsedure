@@ -1,0 +1,64 @@
+﻿@using webApp_codfirst_storeProsedure.Models
+@model hemyayınhembilgi
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+
+            <th scope="col">kitap adı</th>
+            <th scope="col">açıklama</th>
+            <th scope="col">yayın tarihi</th>
+            <th scope="col">yazar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.kitaps)
+        {
+            <tr>
+
+
+                <td>@item.adi</td>
+                <td>@item.aciklama</td>
+                <td>@item.yayintarihi</td>
+
+
+
+            </tr>
+        }
+
+    </tbody>
+    <tbody>
+
+        @foreach (var x in Model.yazars)
+        {
+            <tr>
+                <td>
+                    @(x.isim+" "+x.soyisim)
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
+@foreach (var item in Model.kitapyayin)
+{
+    <br />
+    <h3> <b>@item.sayi</b></h3>
+    
+    <br />
+    @item.tarih
+
+}
+@*<br />
+@foreach (var item in Model.kitapbilgi)
+{
+    <br />
+    @(item.adi+item.yayintarihi)
+}*@
